@@ -1,7 +1,19 @@
 document.addEventListener('DOMContentLoaded',function(){
 	const gameBoardSquares = Array.from(document.querySelectorAll('div'));
 	const selectedSquares = gameBoardSquares.slice(3,12);
-	selectedSquares.forEach(function(square){
+	let isXTurn = true;
+	const gameState = Array(9).fill(null);
+
+	selectedSquares.forEach(function(square, index){
 		square.classList.add('square');
+		square.addEventListener('click', function(){
+			if(!gameState[index]){
+				const currentPlayer = isXTurn ? 'X' : 'O';
+				square.textContent = currentPlayer;
+				square.classList.add(currentPlayer);
+				gameState[index] = currentPlayer;
+				isXTurn =!isXTurn;
+			}
+		});
 	});
 });
