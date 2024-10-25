@@ -15,5 +15,16 @@ document.addEventListener('DOMContentLoaded',function(){
 				isXTurn =!isXTurn;
 			}
 		});
+	
+		square.addEventListener('mouseover', function(){
+			if(!gameState[index]){
+				square.classList.add('hover');
+			}
+		});
+		square.addEventListener('mouseout',function(){
+			if(!gameState[index]){
+				square.classList.remove('hover');
+			}
+		});
 	});
 });
