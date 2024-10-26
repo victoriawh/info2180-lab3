@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded',function(){
 	selectedSquares.forEach(function(square, index){
 		square.classList.add('square');
 		square.addEventListener('click', function(){
-			if(!gameActive || gameState[index]){
+			if(!gameActive && gameState[index]){
 				return;
 			}
 			const currentPlayer = isXTurn ? 'X' : 'O';
